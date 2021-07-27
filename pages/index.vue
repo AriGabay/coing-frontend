@@ -2,13 +2,11 @@
   <div class="main">
     <div class="row">
       <h1>Coing</h1>
-      <Button @click="loadImages">
-        Load Images
-      </Button>
+      <Button @click="loadImages"> Load Images </Button>
     </div>
     <div class="container">
       <Images
-        v-for="(image, imageIndex) in images"
+        v-for="(image, imageIndex) in images.images"
         :key="imageIndex"
         :image="image"
       />
@@ -23,37 +21,37 @@ import Button from '~/components/Button';
 export default {
   components: {
     Images,
-    Button
+    Button,
   },
   computed: {
     ...mapGetters({
-      images: 'images/getImages'
-    })
+      images: 'images/getImages',
+    }),
   },
   methods: {
-    loadImages () {
+    loadImages() {
       this.$store.dispatch('images/getImagesFromApi');
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
-.main{
+.main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
 }
-h1{
+h1 {
   padding: 20px;
 }
-.row{
+.row {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.container{
+.container {
   justify-self: center;
   align-self: center;
   flex-wrap: wrap;

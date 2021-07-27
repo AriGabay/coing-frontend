@@ -1,9 +1,9 @@
 <template>
   <div class="item">
     <span>{{ image.id }}</span>
-    <img :src="image.imageUrl" @error="imageIssue">
+    <img :src="image.url" @error="imageIssue" />
     <div class="title">
-      {{ image.description }}
+      {{ image.title }}
     </div>
   </div>
 </template>
@@ -12,26 +12,28 @@ export default {
   name: 'Image',
   props: ['image'],
   methods: {
-    imageIssue (event) {
-      event.target.src = 'https://staytechie.com/wp-content/uploads/2020/09/YRzXPk.jpeg';
-    }
-  }
+    imageIssue(event) {
+      event.target.src =
+        'https://staytechie.com/wp-content/uploads/2020/09/YRzXPk.jpeg';
+    },
+  },
+  created() {},
 };
 </script>
 
 <style scoped>
-.title{
+.title {
   background: lightblue;
   border: white solid 1px;
 }
-span{
+span {
   position: absolute;
 }
-img{
+img {
   height: 200px;
   width: 200px;
 }
-.item{
+.item {
   max-width: 200px;
 }
 </style>

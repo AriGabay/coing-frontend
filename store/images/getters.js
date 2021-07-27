@@ -1,5 +1,5 @@
 export default {
-  getImages (state) {
+  getImages(state) {
     return state.images;
-  }
+  },
 };
